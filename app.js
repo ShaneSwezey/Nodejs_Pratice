@@ -17,8 +17,10 @@ const argv = yargs
 
 console.log(argv);
 
+let encodedAddress = encodeURIComponent(argv.l);
+
 request({
-    url: 'https://www.metaweather.com/api/location/search/?query=london',
+    url: `https://www.metaweather.com/api/location/search/?query=${encodedAddress}`,
     json: true
 }, (error, response, body) => {
     console.log(JSON.stringify(body));
